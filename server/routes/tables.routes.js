@@ -6,9 +6,10 @@ const router = express.Router()
 // route for new table
 router.post('/tables', async (req, res) => {
     try {
-        console.log(req, body)
+        console.log(req.body)
         const newTable = new Table(req.body)
-        await newTable.save() // save to mongodb
+        await newTable.save()
+        res.status(201).json({"message": "Table created successfully!", newTable}) // save to mongodb
     }
     catch (error) {
         console.error("Error in saving the table:", error)
