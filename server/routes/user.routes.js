@@ -6,6 +6,12 @@ const router = express.Router();
 // Route to ceate a new user
 router.post('/users', async (req, res) => {
     try {
+        const {email} = req.body
+        const patternEmail = "/^[^\s@]+@[^\s@]+\.[^\s@]+$/"
+        if (!email || !patternEmail.test(email)) {
+            return res.status(400).json({message: 'Invalid Email Format'})
+        }
+
         console.log(req.body); //log the payload
         const user = new User(req.body);
         await user.save(); // save to MongoDB Atlas

@@ -7,6 +7,8 @@ import dotenv from 'dotenv';
 //import routes.
 import ordersRoutes from './routes/orders.routes.js'; // import orders routes
 import userRoutes from './routes/user.routes.js'; // import user routes
+import tableRoutes from './routes/tables.routes.js'; // import table routs
+
 
 dotenv.config();
 
@@ -24,6 +26,12 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 // Use routes
 app.use('/api', ordersRoutes); // All routes in orders.routes.js will be prefixed with /api
 app.use('/api', userRoutes); // All routes in user.routes.js will be prefixed with /api
+app.use('/api', tableRoutes);// All routes in tables.routes.js will be prefixed with /api
+
+app.get('/api/user', async (req, res) => {
+    const users = await User.find();
+    res.json(users);
+})
 
 const PORT = process.env.PORT || 5000;
 

@@ -26,7 +26,7 @@ const tableSchema = new mongoose.Schema({
         required: true,
     },
 
-    telepoheNumber: {
+    telephoneNumber: {
         type: String,
         required: true,
     },
@@ -39,4 +39,5 @@ const tableSchema = new mongoose.Schema({
 })
 
 const Table = mongoose.model('Table', tableSchema);
+
 export default Table;
