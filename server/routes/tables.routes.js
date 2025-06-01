@@ -3,7 +3,7 @@ import Table from '../models/tables.models.js'
 
 const router = express.Router()
 
-// route to new table
+// route for new table
 router.post('/tables', async (req, res) => {
     try {
         console.log(req, body)
