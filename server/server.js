@@ -25,6 +25,11 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 app.use('/api', ordersRoutes); // All routes in orders.routes.js will be prefixed with /api
 app.use('/api', userRoutes); // All routes in user.routes.js will be prefixed with /api
 
+app.get('/api/user', async (req, res) => {
+    const users = await User.find();
+    res.json(users);
+})
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
