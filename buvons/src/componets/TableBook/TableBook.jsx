@@ -20,13 +20,13 @@ export default function TableBook() {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault(); 
-    setError('')
+    e.preventDefault();
+
     const validDate = new Date(formData.date);
     const validTime = new Date(`1970-01-01T${formData.time}`).toLocaleTimeString('en-US', {
       hour: '2-digit',
       minute: '2-digit',
-      hour12: true
+      hour12: true,
     });
 
     const tableData = {
@@ -38,8 +38,6 @@ export default function TableBook() {
       telephoneNumber: formData.customerTel,
       customerEmail: formData.email,
     };
-
-    console.log("Placing booking the table", tableData);
 
     fetch("http://localhost:5000/api/tables", {
       method: 'POST',
@@ -66,6 +64,7 @@ export default function TableBook() {
       })
       .catch((error) => {
         console.error('Error placing booking:', error);
+        alert('An error occurred. Please try again.');
       });
   };
 
@@ -79,17 +78,17 @@ export default function TableBook() {
               <tbody>
                 <tr>
                   <td><center>Customer Name:</center></td>
-                  <td><center><input type="text" name="customerName" value={formData.customerName} onChange={handleChange} required /></center></td>
+                  <td><center><input type="text" name="customerName" placeholder='e.g. John Doe' value={formData.customerName} onChange={handleChange} required /></center></td>
                 </tr>
 
                 <tr>
                   <td><center>Customer Tel:</center></td>
-                  <td><center><input type="text" name="customerTel" value={formData.customerTel} onChange={handleChange} required /></center></td>
+                  <td><center><input type="text" name="customerTel" placeholder='e.g. 077123456' value={formData.customerTel} onChange={handleChange} required /></center></td>
                 </tr>
 
                 <tr>
                   <td><center>Email:</center></td>
-                  <td><center><input type="email" name="email" value={formData.email} onChange={handleChange} required /></center></td>
+                  <td><center><input type="email" name="email" placeholder='e.g. user@example.com' value={formData.email} onChange={handleChange} required /></center></td>
                 </tr>
 
                 <tr>
