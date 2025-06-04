@@ -12,3 +12,4 @@ const tableSchema = new mongoose.Schema({
 
 const Table = mongoose.model('Table', tableSchema);
 export default Table;
+

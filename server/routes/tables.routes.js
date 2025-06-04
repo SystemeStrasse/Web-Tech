@@ -1,3 +1,4 @@
+
 import express from 'express';
 import Table from '../models/tables.models.js';
 
@@ -27,3 +28,4 @@ router.get('/tables', async (req, res) => {
 });
 
 export default router;
+
