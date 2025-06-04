@@ -19,7 +19,9 @@ export default function Orders() {
         { id: 13, name: 'Vanilla Latte', small: 3.45, large: 4.35 },
         { id: 14, name: 'Cafe Americano', small: 2.25, large: 3.50 }
     ]);
+    const [searchTerm, setSearchTerm] = useState("")
     const [cart, setCart] = useState([]);
+    const [isOpen, setIsOpen] = useState(false);
     const [customer, setCustomer] = useState({
         name: '',
         email: '',
@@ -59,7 +61,7 @@ export default function Orders() {
             totalPrice: totalP(),
             date: new Date().toISOString(),
         };
-    
+
         console.log("Submitting order:", orderData); // Log the payload
         fetch('http://localhost:5000/api/orders', {
             method: 'POST',
@@ -86,10 +88,17 @@ export default function Orders() {
             <div className='orders'>
                 <center>
                     <h1>Products Catalog</h1>
+                    <input
+                        type="text"
+                        placeholder="Search products..."
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        className="search-bar"
+                    />
                 </center>
                 <div className='customer'>
-                    <h1>Customer Details</h1>
                     <center>
+                        <h1>Customer Details</h1>
                         <form>
                             <table className='table'>
                                 <tr>
@@ -115,41 +124,82 @@ export default function Orders() {
                         </form>
                     </center>
                 </div>
+
                 <div>
                     <div className="products-container">
                         <h1>Products</h1>
                         <div className="products-grid">
-                            {products.map((product) => (
-                                <div key={product.id} className="product-card">
-                                    <h2>{product.name}</h2>
-                                    <p>Small: ${product.small.toFixed(2)}</p>
-                                    <button onClick={() => addCart(product, 'small')}>Add Small</button>
-                                    <p>Large: ${product.large.toFixed(2)}</p>
-                                    <button onClick={() => addCart(product, 'large')}>Add Large</button>
-                                </div>
-                            ))}
+                            {products
+                                .filter((product) =>
+                                    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+                                )
+                                .map((product) => (
+                                    <div key={product.id} className="product-card">
+                                        <h2>{product.name}</h2>
+                                        <p>Small: ${product.small.toFixed(2)}</p>
+                                        <button onClick={() => addCart(product, 'small')}>Add Small</button>
+                                        <p>Large: ${product.large.toFixed(2)}</p>
+                                        <button onClick={() => addCart(product, 'large')}>Add Large</button>
+                                    </div>
+                                ))}
                         </div>
 
-                        <h2>Cart</h2>
-                        <ul>
-                            {cart.map((item, index) => (
-                                <li key={index}>
-                                    {item.name} ({item.size}) - ${item.price.toFixed(2)}
-                                    <button onClick={() => removeCart(index)}>Remove</button>
-                                </li>
-                            ))}
-                        </ul>
 
-                        <h3>Total: ${totalP().toFixed(2)}</h3>
                     </div>
+
+
                     <center>
-                        <button onClick={handleSubmitOrder} className="submit-order">
-                            Submit Order
-                        </button>
-                        
+
+                        {/* Open a message box */}
+                        <div className="p-4">
+                            <button onClick={() => setIsOpen(true)} className="bg-blue-500 text-white px-4 py-2 rounded">
+                                Review Your Order
+                            </button>
+
+                            {isOpen && (
+                                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                                    <div className="bg-white p-6 rounded shadow-xl">
+                                        <h2 className="text-xl font-bold mb-4">Your placed your order...</h2>
+                                        <table>
+                                            <tr>
+                                                <td>Customer Name</td>
+                                                <td>{customer.name}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Telephone Number</td>
+                                                <td>{customer.phone}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Customer Email</td>
+                                                <td>{customer.phone}</td>
+                                            </tr>
+                                        </table>
+                                        <h2>Cart</h2>
+                                        <ul>
+                                            {cart.map((item, index) => (
+                                                <li key={index}>
+                                                    {item.name} ({item.size}) - ${item.price.toFixed(2)}
+                                                    <button onClick={() => removeCart(index)}>Remove</button>
+                                                </li>
+                                            ))}
+                                        </ul>
+
+                                        <h3>Total: ${totalP().toFixed(2)}</h3>
+                                        <button onClick={handleSubmitOrder} className="submit-order">
+                                            Submit Order
+                                        </button> <br /><br />
+                                        <button onClick={() => setIsOpen(false)} className="mt-4 bg-red-500 text-white px-4 py-2 rounded">
+                                            Close
+                                        </button>
+                                    </div>
+                                </div>
+
+                            )}
+                        </div>
                     </center>
                 </div>
             </div>
+            
         </>
     );
 }
