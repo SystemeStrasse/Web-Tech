@@ -1,7 +1,22 @@
 import React from 'react'
 import './Login.css'
+import axios from 'axios';
 
 export default function Login() {
+    const [email, setEmail] = React.useState('');
+    const [password, setPassword] = React.useState('');
+    const [error, setError] = React.useState('');
+
+    const handleLogin = async (e) => {
+        try {
+            const res = await axios.post('/api/user', { email, password });
+            localStorage.setItem('token', res.data.token);
+            alert('Login successful!');
+            // Redirect to dashboard
+        } catch (err) {
+            setError(err.response?.data?.error || 'Login failed');
+        }
+    }
     return (
         <>
             <center>
@@ -17,7 +32,7 @@ export default function Login() {
                             </td>
                             <td>
                                 <center>
-                                    <input type="email" name="email" id="email" />
+                                    <input type="email" name="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
                                 </center>
                             </td>
                         </tr>
@@ -29,14 +44,14 @@ export default function Login() {
                             </td>
                             <td>
                                 <center>
-                                    <input type="password" name="password" id="password" />
+                                    <input type="password" name="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                                 </center>
                             </td>
                         </tr>
                         <tr>
                             <td rowSpan={2}>
                                 <center>
-                                    <button type="submit">Login</button>
+                                    <button type="submit" onClick={handleLogin}>Login</button>
                                 </center>
                             </td>
                         </tr>
@@ -48,6 +63,7 @@ export default function Login() {
                             </td>
                         </tr>
                     </table>
+                    {error && <p style={{ color: 'red' }}>{error}</p>}
                 </form>
 
             </center>
