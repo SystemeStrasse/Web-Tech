@@ -1,7 +1,51 @@
-.facilities{
-    position: absolute;
-    top: 25%;
-    text-align: justify;
-    left: 5%;
-    right: 5%;
+.facilities {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px 40px;
+  background-color: #fdfaf6;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+.facilities h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #5c3d2e;
+}
+
+.facilities p {
+  margin-bottom: 20px;
+}
+
+.facilities ul {
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.facilities li {
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+/* Optional: Add a hover effect on list items */
+.facilities li:hover {
+  background-color: #fff7f1;
+  border-radius: 6px;
+  padding: 5px;
+  transition: 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .facilities {
+    padding: 20px;
+    font-size: 15px;
+  }
+
+  .facilities h1 {
+    font-size: 26px;
+  }
 }
