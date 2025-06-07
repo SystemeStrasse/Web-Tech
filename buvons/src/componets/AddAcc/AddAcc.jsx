@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './AddAcc.css';
 
 export default function AddAcc() {
     const [formData, setFormData] = useState({
