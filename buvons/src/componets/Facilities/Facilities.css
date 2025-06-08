@@ -1,4 +1,8 @@
 .facilities {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  right: 0;
   max-width: 900px;
   margin: 40px auto;
   padding: 30px 40px;
