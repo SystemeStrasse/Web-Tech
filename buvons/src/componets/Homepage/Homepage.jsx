@@ -26,7 +26,7 @@ export default function Homepage() {
           marginTop: '7%'
         }}>
 
-          <h1>Coffee for Celebrate</h1>
+          <h1 style={{ color: 'white' }}>Coffee for Celebrate</h1>
           <p><Link to="/tablebooking" className='link' style={{ color: 'white' }}>Book Your Table</Link></p>
         </div>
       </div >
@@ -71,7 +71,7 @@ export default function Homepage() {
           marginTop: '7%'
         }}>
           <h1>Coffee for Freedom</h1>
-          <p><Link to="/facilities" className='link' style={{ color: 'black' }}>Learn More</Link></p>
+          <p><Link to="/facilities" className='link' style={{ color: 'black' }}>Learn about Facilities</Link></p>
         </div>
       </div>
 
@@ -92,7 +92,7 @@ export default function Homepage() {
           marginRight: '20%',
           marginTop: '7%'
         }}>
-          <h1>Coffee for Everyone</h1>
+          <h1 style={{ color: 'white' }}>Coffee for Everyone</h1>
           <p><Link to="/orders" className='link' style={{ color: 'white' }}>Place your Order</Link></p>
         </div>
       </div>

@@ -1,4 +1,8 @@
 .description {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  right: 0;
   max-width: 800px;
   margin: 40px auto;
   padding: 20px 30px;
