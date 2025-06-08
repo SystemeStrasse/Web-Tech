@@ -1,21 +1,51 @@
-.shops{
-    position: absolute;
-    top: 20%;
-    left: 0;
-    right: 0;
-}
-fieldset{
-    position: absolute;
-    top: 35%;
-    left: 10%;
-    right: 10%;
-}
-.shops-table{
-    border-collapse: collapse;
-    width: 80%;
-    height: auto;
+body {
+  background-color: #fdf6f0; /* Light coffee cream */
+  font-family: 'Segoe UI', sans-serif;
+  color: #4b2e16; /* Coffee brown */
+  margin: 0;
+  padding: 0;
 }
 
-.shops-table td{
-    padding: 2% 10% 2% 10%;
+.shops {
+  font-size: 2.2rem;
+  color: #4b2e16;
+  margin-top: 20px;
+  font-weight: 600;
+  background-color: #e0c3a3;
+  padding: 10px 20px;
+  border-radius: 12px;
+  display: inline-block;
+  box-shadow: 2px 4px 8px rgba(101, 67, 33, 0.2);
+}
+
+fieldset {
+  margin-top: 30px;
+  padding: 20px;
+  width: 70%;
+  border: 3px solid #b3906c; /* Light mocha border */
+  border-radius: 10px;
+  background-color: #fffaf5; /* Soft latte background */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.shops-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 20px;
+}
+
+.shops-table td {
+  background-color: #d2b48c; /* Tan coffee cell background */
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #fff;
+  box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+.shops-table td:hover {
+  background-color: #a9744f; /* Darker coffee on hover */
+  transform: scale(1.05);
 }
