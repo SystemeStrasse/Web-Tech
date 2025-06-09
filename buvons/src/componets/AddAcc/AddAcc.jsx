@@ -45,7 +45,7 @@ export default function AddAcc() {
         <div style={{backgroundImage: `url(${bgi})`, backgroundSize: 'cover', minHeight: '100vh'}}>
             <center>
                     
-                    <form onSubmit={handleAccount}>
+                    <form onSubmit={handleAccount} className='addAccount'>
                         <h1>Add Account</h1>
                         <table className="table">
                             <tbody>

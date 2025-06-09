@@ -1,11 +1,20 @@
-a{
-    text-decoration: none;
-    color: #000;
+a {
+  text-decoration: none;
+  color: #000;
 }
 
-.login{
-    position: absolute;
+.login {
+  position: absolute;
   left: 0;
   right: 0;
   top: 20%;
+}
+
+.login {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }

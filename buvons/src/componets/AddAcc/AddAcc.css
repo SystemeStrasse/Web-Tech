@@ -11,12 +11,11 @@ h1 {
   font-size: 32px;
 }
 
-form {
-<<<<<<< HEAD
+.addAccount {
   position: absolute;
   left: 0;
   right: 0;
-  top: 2%;
+  top: 0.25%;
   border-radius: 8px;
   background-color: #fdfaf6;
   padding: 1%;
@@ -24,14 +23,6 @@ form {
   border-radius: 12px;
   max-width: 500px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-=======
-  background-color: #fff8f2;
-  padding: 40px;
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(87, 59, 39, 0.2);
-  max-width: 600px;
-  margin-top: 30px;
->>>>>>> c063c9f16306f465d3afef4b1b18a569f1ead624
 }
 
 .table {
