@@ -10,20 +10,22 @@ export default function Login() {
     const [error, setError] = React.useState('');
 
     const handleLogin = async (e) => {
+        e.preventDefault(); // Prevent form from submitting the default way
         try {
             const res = await axios.post('/api/user', { email, password });
             localStorage.setItem('token', res.data.token);
             alert('Login successful!');
+            navigate('/');
             // Redirect to dashboard
         } catch (err) {
             setError(err.response?.data?.error || 'Login failed');
         }
-    }
+    };
     return (
         <div style={{backgroundImage: `url(${bgi})`, backgroundSize: 'cover', minHeight: '100vh'}}>
             <center>
 
-                <form className='login'>
+                <form className='login' onSubmit={handleLogin}>
                 <h1>Login</h1>
                     <table className='table'>
                         <tr>
@@ -53,7 +55,7 @@ export default function Login() {
                         <tr>
                             <td rowSpan={2}>
                                 <center>
-                                    <button type="submit" onClick={handleLogin}>Login</button>
+                                    <button type="submit">Login</button>
                                 </center>
                             </td>
                         </tr>

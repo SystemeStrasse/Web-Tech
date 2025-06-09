@@ -7,29 +7,20 @@ const router = express.Router();
 
 // Route to verify user credentials
 router.post('/login', async (req, res) => {
+    const { email, password } = req.body;
     try {
-        const { email, password } = req.body;
         const user = await User.findOne({ email });
-
         if (!user) {
             return res.status(404).json({ message: 'Invalid email or password' });
         }
 
-        // check if verified
-        if (!user.verified) {
-            return res.status(403).json({ message: 'User not verified' });
-        }
-
-        // 3. Check password
-        const isMatch = await bcrypt.compare(password, user.password);
+        const isMatch = await user.compairePassword(password);
         if (!isMatch) {
             return res.status(400).json({ error: 'Invalid email or password' });
         }
 
-        // 4. Generate JWT token
-        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-
-        res.status(200).json({ message: 'Login successful', token, user: { email: user.email } });
+        const token = jwt.sign({ id: user._id }, 'your_jwt_secret', { expiresIn: '1h' });
+        res.json({ token });
     }
     catch (error) {
         console.error('Error during login:', error);

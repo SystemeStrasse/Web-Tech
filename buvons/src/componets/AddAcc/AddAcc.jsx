@@ -30,6 +30,7 @@ export default function AddAcc() {
         })
             .then(async (response) => {
                 const data = await response.json();
+                console.log('Response Data:', data);
                 if (response.status === 409) {
                     alert('User already exist');
                     return;
