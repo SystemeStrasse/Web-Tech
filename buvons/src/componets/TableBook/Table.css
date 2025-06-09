@@ -1,23 +1,33 @@
-table{
+table {
     border-collapse: collapse;
     width: 80%;
     height: auto;
 }
 
-table td{
+table td {
     padding: 2% 10% 2% 10%;
 }
 
-fieldset{
+fieldset {
     background-color: bisque;
     border-radius: 8px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 2%;
 }
 
 button {
     padding: 10px 25px;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.tableBooking {
+    position: absolute;
+    left: 10%;
+    right: 10%;
 }
