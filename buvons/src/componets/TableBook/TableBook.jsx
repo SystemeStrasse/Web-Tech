@@ -47,7 +47,12 @@ export default function TableBook() {
       },
       body: JSON.stringify(tableData),
     })
-      .then((response) => {
+      .then(  async(response) => {
+        const data = await response.json();
+        if (response.status === 409) {
+          alert(data.message || 'This table is already booked');
+          return;
+        }
         if (response.ok) {
           alert('Table booking successful!');
           setFormData({

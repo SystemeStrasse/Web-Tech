@@ -7,9 +7,20 @@ const router = express.Router();
 // Create a new table booking
 router.post('/tables', async (req, res) => {
   try {
-    console.log('Received booking:', req.body);
+    const { date, time, tableNumber } = req.body;
+
+    const existingBooking = await Table.findOne({ date, time, tableNumber });
+
+    if (existingBooking) {
+      return res.status(409).json({
+        message: 'This table is already booked for the selected date and time.',
+      });
+    }
+
+    // If not booked, proceed to save
     const table = new Table(req.body);
     await table.save();
+
     res.status(201).json({ message: 'Table booking created successfully!', table });
   } catch (error) {
     console.error('Error saving table booking:', error);

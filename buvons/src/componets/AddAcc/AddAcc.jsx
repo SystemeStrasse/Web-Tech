@@ -28,13 +28,22 @@ export default function AddAcc() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData),
         })
-            .then((response) => {
-                if (response.ok) {
-                    alert('Account created successfully!');
-                    window.location.href = '/';
+            .then(async (response) => {
+                const data = await response.json();
+                if (response.status === 409) {
+                    alert('User already exist');
+                    return;
                 } else {
-                    alert('Failed to create account. Please try again.');
+                    if (response.ok) {
+                        alert('Account created successfully!');
+                        window.location.href = '/';
+                    } else {
+                        alert('Failed to create account. Please try again.');
+                        console.error('Server error:', data);
+                        console.log('Failed to create account: ' + (data.error || 'Unknown error'));
+                    }
                 }
+
             })
             .catch((error) => {
                 console.log('Error creating account:', error);
@@ -42,83 +51,83 @@ export default function AddAcc() {
     };
 
     return (
-        <div style={{backgroundImage: `url(${bgi})`, backgroundSize: 'cover', minHeight: '100vh'}}>
+        <div style={{ backgroundImage: `url(${bgi})`, backgroundSize: 'cover', minHeight: '100vh' }}>
             <center>
-                    
-                    <form onSubmit={handleAccount} className='addAccount'>
-                        <h1>Add Account</h1>
-                        <table className="table">
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <center>First Name:</center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input
-                                                type="text"
-                                                name="fname"
-                                                value={formData.fname}
-                                                onChange={handleChange}
-                                            />
-                                        </center>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <center>Last Name:</center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input
-                                                type="text"
-                                                name="lname"
-                                                value={formData.lname}
-                                                onChange={handleChange}
-                                            />
-                                        </center>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <center>Email:</center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input
-                                                type="email"
-                                                name="email"
-                                                value={formData.email}
-                                                onChange={handleChange}
-                                            />
-                                        </center>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <center>Password:</center>
-                                    </td>
-                                    <td>
-                                        <center>
-                                            <input
-                                                type="password"
-                                                name="password"
-                                                value={formData.password}
-                                                onChange={handleChange}
-                                            />
-                                        </center>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colSpan={2}>
-                                        <center>
-                                            <button type="submit">Register</button>
-                                        </center>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </form>
+
+                <form onSubmit={handleAccount} className='addAccount'>
+                    <h1>Add Account</h1>
+                    <table className="table">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <center>First Name:</center>
+                                </td>
+                                <td>
+                                    <center>
+                                        <input
+                                            type="text"
+                                            name="fname"
+                                            value={formData.fname}
+                                            onChange={handleChange}
+                                        />
+                                    </center>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <center>Last Name:</center>
+                                </td>
+                                <td>
+                                    <center>
+                                        <input
+                                            type="text"
+                                            name="lname"
+                                            value={formData.lname}
+                                            onChange={handleChange}
+                                        />
+                                    </center>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <center>Email:</center>
+                                </td>
+                                <td>
+                                    <center>
+                                        <input
+                                            type="email"
+                                            name="email"
+                                            value={formData.email}
+                                            onChange={handleChange}
+                                        />
+                                    </center>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <center>Password:</center>
+                                </td>
+                                <td>
+                                    <center>
+                                        <input
+                                            type="password"
+                                            name="password"
+                                            value={formData.password}
+                                            onChange={handleChange}
+                                        />
+                                    </center>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colSpan={2}>
+                                    <center>
+                                        <button type="submit">Register</button>
+                                    </center>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
             </center>
         </div>
     );

@@ -18,13 +18,18 @@ body {
   box-shadow: 2px 4px 8px rgba(101, 67, 33, 0.2);
 }
 
-fieldset {
+.shop-fieldset {
+  
+  position: absolute;
+  top: 20%;
+  left: 15%;
+  right: 15%;
   margin-top: 30px;
   padding: 20px;
   width: 70%;
   border: 3px solid #b3906c; /* Light mocha border */
   border-radius: 10px;
-  background-color: #fffaf5; /* Soft latte background */
+  background-color: #85511d; /* Soft latte background */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 

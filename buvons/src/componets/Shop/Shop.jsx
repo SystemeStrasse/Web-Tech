@@ -7,8 +7,9 @@ export default function Shop() {
     <>
       <Header />
       <center>
-        <h1 className='shops'>Shops Network</h1>
-        <fieldset>
+        
+        <fieldset className='shop-fieldset'>
+          <h1 className='shops'>Shops Network</h1>
           <table className='shops-table'>
             <tr>
               <td><center>Galle Fort</center></td>

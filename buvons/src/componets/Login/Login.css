@@ -5,12 +5,13 @@ a {
 
 .login {
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 20%;
+  left: 15%;
+  right: 15%;
+  top: 10%;
 }
 
 .login {
+  background-color: bisque;
   padding: 10px 25px;
   border: none;
   border-radius: 8px;
