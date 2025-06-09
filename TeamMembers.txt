@@ -9,5 +9,5 @@ Fontend -   234177J
             235520N
             234061A
 
-Backend -   234208H
-            234149C
+Backend -   Database(MongoDB) and Connect with Express JS   - 234208H
+            ExpressJS Server                                - 234149C
