@@ -52,7 +52,7 @@ export default function Menu() {
       <header className="menu-header">
         <div className="header-container">
           <Link to="/" className="logo-link">
-            <img src="/Images/bitmap.svg" alt="Buvons Coffee" className="logo" />
+            <img src="/images/bitmap.svg" alt="Buvons Coffee" className="logo" />
           </Link>
           <nav className="main-nav">
             <ul className="nav-tabs">
@@ -104,7 +104,7 @@ export default function Menu() {
                 onClick={() => toggleCategory(item.name)}
               >
                 <div className="category-icon">
-                  <img src={`/Images/${item.icon}.jpg`} alt={item.name} />
+                  <img src={`/images/${item.icon}.jpg`} alt={item.name} />
                 </div>
                 <div className="category-name">{item.name}</div>
                 <div className="category-arrow">›</div>
@@ -124,7 +124,7 @@ export default function Menu() {
                 onClick={() => toggleCategory(item.name)}
               >
                 <div className="category-icon">
-                  <img src={`/Images/${item.icon}.jpg`} alt={item.name} />
+                  <img src={`/images/${item.icon}.jpg`} alt={item.name} />
                 </div>
                 <div className="category-name">{item.name}</div>
                 <div className="category-arrow">›</div>
@@ -144,7 +144,7 @@ export default function Menu() {
                 onClick={() => toggleCategory(item.name)}
               >
                 <div className="category-icon">
-                  <img src={`/Images/${item.icon}.jpg`} alt={item.name} />
+                  <img src={`/images/${item.icon}.jpg`} alt={item.name} />
                 </div>
                 <div className="category-name">{item.name}</div>
                 <div className="category-arrow">›</div>
