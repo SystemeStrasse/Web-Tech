@@ -58,6 +58,7 @@ export default function AddAcc() {
                 <form onSubmit={handleAccount} className='addAccount'>
                     <h1>Add Account</h1>
                     <table className="table">
+                        <thead></thead>
                         <tbody>
                             <tr>
                                 <td>
