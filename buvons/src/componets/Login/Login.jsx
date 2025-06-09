@@ -2,6 +2,8 @@ import React from 'react'
 import './Login.css'
 import axios from 'axios';
 
+const bgi = '/images/BuvonsInside.png';
+
 export default function Login() {
     const [email, setEmail] = React.useState('');
     const [password, setPassword] = React.useState('');
@@ -18,11 +20,11 @@ export default function Login() {
         }
     }
     return (
-        <>
+        <div style={{backgroundImage: `url(${bgi})`, backgroundSize: 'cover', minHeight: '100vh'}}>
             <center>
-                <h1>Login</h1>
 
-                <form>
+                <form className='login'>
+                <h1>Login</h1>
                     <table className='table'>
                         <tr>
                             <td>
@@ -67,6 +69,6 @@ export default function Login() {
                 </form>
 
             </center>
-        </>
+        </div>
     )
 }

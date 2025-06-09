@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "cd claude-code && npm start",
-    "client": "cd client && npm start"
+    "start": "concurrently \"npm run server\" \"npm run buvons\"",
+    "server": "cd server && npm start",
+    "buvons": "cd buvons && npm run dev"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,7 @@
     "url": "https://github.com/SystemeStrasse/Web-Tech/issues"
   },
   "homepage": "https://github.com/SystemeStrasse/Web-Tech#readme",
-  "dependencies": {
+  "devDependencies": {
     "concurrently": "^9.1.2"
   }
 }

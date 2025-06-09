@@ -114,9 +114,9 @@ export default function TableBook() {
               </tbody>
             </table>
 
-          {/* Open message box */}
+            {/* Open message box */}
             <div className="p-4">
-              <button onClick={() => setIsOpen(true)} className="bg-blue-500 text-white px-4 py-2 rounded">
+              <button style={{backgroundColor: "#7a5233", color: "white"}}  onClick={() => setIsOpen(true)} className="bg-blue-500 text-white px-4 py-2 rounded">
                 Review Booking
               </button>
 
@@ -150,14 +150,15 @@ export default function TableBook() {
                         <td>{formData.time}</td>
                       </tr>
                     </table>
-                    <button onClick={() => setIsOpen(false)} className="mt-4 bg-red-500 text-white px-4 py-2 rounded">
+                    <button style={{backgroundColor: "#7a5233", color: "white", margin: "2%"}} onClick={() => setIsOpen(false)} className="mt-4 bg-red-500 text-white px-4 py-2 rounded">
                       Close
                     </button>
+                    <center><button type="submit">Submit</button></center>
                   </div>
                 </div>
               )}
             </div>
-            <center><button type="submit">Submit</button></center>
+
           </form>
         </center>
       </fieldset>

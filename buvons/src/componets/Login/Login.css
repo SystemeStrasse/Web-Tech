@@ -2,3 +2,10 @@ a{
     text-decoration: none;
     color: #000;
 }
+
+.login{
+    position: absolute;
+  left: 0;
+  right: 0;
+  top: 20%;
+}

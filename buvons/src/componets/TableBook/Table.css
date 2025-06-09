@@ -1,17 +1,23 @@
-.table{
+table{
     border-collapse: collapse;
     width: 80%;
     height: auto;
 }
 
-.table td{
+table td{
     padding: 2% 10% 2% 10%;
 }
 
 fieldset{
     background-color: bisque;
+    border-radius: 8px;
 }
 
-.button{
-    margin: 2% 0 2% 0;
+button {
+    padding: 10px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }

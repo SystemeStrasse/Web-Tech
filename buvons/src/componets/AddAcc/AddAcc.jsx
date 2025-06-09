@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './AddAcc.css';
 
+
+const bgi = '/images/BuvonsInside.png';
 export default function AddAcc() {
     const [formData, setFormData] = useState({
         fname: '',
@@ -40,81 +42,84 @@ export default function AddAcc() {
     };
 
     return (
-        <center>
-            <h1>Add Account</h1>
-            <form onSubmit={handleAccount}>
-                <table className="table">
-                    <tbody>
-                        <tr>
-                            <td>
-                                <center>First Name:</center>
-                            </td>
-                            <td>
-                                <center>
-                                    <input
-                                        type="text"
-                                        name="fname"
-                                        value={formData.fname}
-                                        onChange={handleChange}
-                                    />
-                                </center>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <center>Last Name:</center>
-                            </td>
-                            <td>
-                                <center>
-                                    <input
-                                        type="text"
-                                        name="lname"
-                                        value={formData.lname}
-                                        onChange={handleChange}
-                                    />
-                                </center>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <center>Email:</center>
-                            </td>
-                            <td>
-                                <center>
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        value={formData.email}
-                                        onChange={handleChange}
-                                    />
-                                </center>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <center>Password:</center>
-                            </td>
-                            <td>
-                                <center>
-                                    <input
-                                        type="password"
-                                        name="password"
-                                        value={formData.password}
-                                        onChange={handleChange}
-                                    />
-                                </center>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colSpan={2}>
-                                <center>
-                                    <button type="submit">Register</button>
-                                </center>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </form>
-        </center>
+        <div style={{backgroundImage: `url(${bgi})`, backgroundSize: 'cover', minHeight: '100vh'}}>
+            <center>
+                    
+                    <form onSubmit={handleAccount}>
+                        <h1>Add Account</h1>
+                        <table className="table">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <center>First Name:</center>
+                                    </td>
+                                    <td>
+                                        <center>
+                                            <input
+                                                type="text"
+                                                name="fname"
+                                                value={formData.fname}
+                                                onChange={handleChange}
+                                            />
+                                        </center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>Last Name:</center>
+                                    </td>
+                                    <td>
+                                        <center>
+                                            <input
+                                                type="text"
+                                                name="lname"
+                                                value={formData.lname}
+                                                onChange={handleChange}
+                                            />
+                                        </center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>Email:</center>
+                                    </td>
+                                    <td>
+                                        <center>
+                                            <input
+                                                type="email"
+                                                name="email"
+                                                value={formData.email}
+                                                onChange={handleChange}
+                                            />
+                                        </center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>Password:</center>
+                                    </td>
+                                    <td>
+                                        <center>
+                                            <input
+                                                type="password"
+                                                name="password"
+                                                value={formData.password}
+                                                onChange={handleChange}
+                                            />
+                                        </center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colSpan={2}>
+                                        <center>
+                                            <button type="submit">Register</button>
+                                        </center>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </form>
+            </center>
+        </div>
     );
 }
