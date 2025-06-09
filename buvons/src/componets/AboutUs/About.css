@@ -1,38 +1,41 @@
-.description {
-  position: absolute;
-  top: 20%;
-  left: 0;
-  right: 0;
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px 30px;
-  background-color: #fdfaf6;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+body {
+  background-color: #f5f0eb;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
-  line-height: 1.7;
-  font-size: 16px;
+}
+
+.description {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 40px;
+  background: #fff7f0;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(87, 59, 39, 0.2);
+  color: #4e342e; /* Dark coffee color */
+  font-size: 17px;
+  line-height: 1.8;
+  transition: all 0.3s ease;
+}
+
+.description:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(87, 59, 39, 0.3);
 }
 
 .description h1 {
-  font-size: 32px;
+  font-size: 34px;
+  color: #6d4c41;
+  text-shadow: 1px 1px #e4c8b4;
   margin-bottom: 20px;
-  color: #5c3d2e;
-}
-
-center {
-  display: block;
-  text-align: center;
 }
 
 @media (max-width: 768px) {
   .description {
-    padding: 15px 20px;
-    font-size: 15px;
+    padding: 20px;
+    font-size: 16px;
   }
 
   .description h1 {
     font-size: 26px;
   }
 }
+
