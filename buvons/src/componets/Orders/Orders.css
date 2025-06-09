@@ -1,4 +1,4 @@
-input, textarea {
+input, textarea, select{
   width: 100%;
   max-width: 400px;
   padding: 0.5em;
@@ -62,3 +62,4 @@ input, textarea {
   li{
     list-style: none;
   }
+
